@@ -1,9 +1,11 @@
 version: "3.7"
 services: 
   mongodb:
+    restart: unless-stopped
     image: mongo
     container_name: graylog_mongodb
   elasticsearch:
+    restart: unless-stopped
     image: docker.elastic.co/elasticsearch/elasticsearch:6.7.0
     container_name: graylog_elasticsearch
     environment:
@@ -24,6 +26,7 @@ services:
           cpus: "0.25"
           memory: 512m
   graylog:
+    restart: unless-stopped
     image: graylog/graylog:3.0
     container_name: graylog
     environment:
