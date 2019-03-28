@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  redis:
+    restart: unless-stopped
+    image: redis
+    container_name: redis
+    command: redis-server --requirepass P@ssw0rd
+    ports:
+      - 6379:6379
+    volumes:
+      - ./datas/redis:/var/lib/redis
